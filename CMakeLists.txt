@@ -29,6 +29,12 @@ find_ups_product( cetbuildtools v4_14_01 )
 set(PERL_COMMAND "perl -w")
 set(HDF5_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/hdf5)
 set(HDF5_GENERATE_HEADERS 1)
+set(HDF5_EXTERNALLY_CONFIGURED 1)
+set(HDF5_INSTALL_CMAKE_DIR ${CMAKE_INSTALL_PREFIX}/${flavorqual_dir}/cmake)
+set(HDF5_INSTALL_LIB_DIR ${CMAKE_INSTALL_PREFIX}/${flavorqual_dir}/lib)
+set(HDF5_INSTALL_BIN_DIR ${CMAKE_INSTALL_PREFIX}/${flavorqual_dir}/bin)
+set(HDF5_INSTALL_INCLUDE_DIR ${CMAKE_INSTALL_PREFIX}/${flavorqual_dir}/include)
+set(HDF5_INSTALL_DATA_DIR ${CMAKE_INSTALL_PREFIX}/${flavorqual_dir}/share)
 add_subdirectory(hdf5)
 
 # tests
