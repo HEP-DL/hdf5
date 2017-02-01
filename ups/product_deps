@@ -23,7 +23,7 @@ defaultqual e10
 # gdmldir -  
 # fwdir   -  
 #
-incdir	product_dir	include
+incdir	fq_dir	include
 libdir	fq_dir		lib
 bindir	fq_dir		bin
 flcdir  product_dir     fcl
