@@ -13,7 +13,9 @@ set(CMAKE_MODULE_PATH $ENV{ART_DIR}/Modules
 		      ${CMAKE_MODULE_PATH})
 
 include(CetCMakeEnv)
+include(CetCMakeUtils)
 cet_cmake_env()
+
 
 cet_set_compiler_flags(DIAGS CAUTIOUS
   EXTRA_FLAGS -pedantic -Wno-unused-local-typedefs
@@ -35,6 +37,8 @@ set(HDF5_INSTALL_BIN_DIR ${CMAKE_INSTALL_PREFIX}/${flavorqual_dir}/bin)
 set(HDF5_INSTALL_INCLUDE_DIR ${CMAKE_INSTALL_PREFIX}/${flavorqual_dir}/include)
 set(HDF5_INSTALL_DATA_DIR ${CMAKE_INSTALL_PREFIX}/${flavorqual_dir}/share)
 add_subdirectory(hdf5)
+cet_add_to_library_list(${install_targets})
+
 
 # tests
 add_subdirectory(test)
