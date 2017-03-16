@@ -37,7 +37,7 @@ set(HDF5_INSTALL_BIN_DIR ${CMAKE_INSTALL_PREFIX}/${flavorqual_dir}/bin)
 set(HDF5_INSTALL_INCLUDE_DIR ${CMAKE_INSTALL_PREFIX}/${flavorqual_dir}/include)
 set(HDF5_INSTALL_DATA_DIR ${CMAKE_INSTALL_PREFIX}/${flavorqual_dir}/share)
 add_subdirectory(hdf5)
-cet_add_to_library_list(${install_targets})
+#cet_add_to_library_list(${install_targets})
 
 
 # tests
