@@ -30,14 +30,20 @@ find_ups_product( cetbuildtools v4_14_01 )
 
 set(PERL_COMMAND "perl -w")
 set(HDF5_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/hdf5)
+set(HDF5_CONFIG_PATH ${CMAKE_INSTALL_PREFIX}/${flavorqual_dir}/lib/hdf5/cmake/hdf5Config.cmake)
+# ZLib will not be supported until a zlib product can be made
+#set(HDF5_ENABLE_Z_LIB_SUPPORT ON)
 SET(HDF5_GENERATE_HEADERS ON CACHE BOOL "Regenerate HDF5 Headers")
 set(HDF5_INSTALL_CMAKE_DIR ${CMAKE_INSTALL_PREFIX}/${flavorqual_dir}/lib/hdf5/cmake)
 set(HDF5_INSTALL_LIB_DIR ${CMAKE_INSTALL_PREFIX}/${flavorqual_dir}/lib)
 set(HDF5_INSTALL_BIN_DIR ${CMAKE_INSTALL_PREFIX}/${flavorqual_dir}/bin)
 set(HDF5_INSTALL_INCLUDE_DIR ${CMAKE_INSTALL_PREFIX}/${flavorqual_dir}/include)
 set(HDF5_INSTALL_DATA_DIR ${CMAKE_INSTALL_PREFIX}/${flavorqual_dir}/share)
+set(HDF5_INC ${CMAKE_SOURCE_PREFIX}/hdf5/src FORCE PARENT_SCOPE)
 add_subdirectory(hdf5)
-#cet_add_to_library_list(${install_targets})
+#foreach(hdf5_lib ${install_targets})
+#  cet_add_to_library_list(${hdf5_lib})
+#endforeach(hdf5_lib)
 
 
 # tests

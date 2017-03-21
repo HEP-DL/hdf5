@@ -8,23 +8,41 @@ FNAL UPS Produce Source for HDF5 support
 
 ## Usage
 
+For using this product with other UPS products, first ensure that the library can be found with:
+
+~~~ bash
+ups list -aK+ hdf5
+~~~
+
+On the Fermi grid, there is an existing product called `hdf5`. This lacks the C++ binding and high level tools utilized by [kevlar](github.com/HEP-DL/kevlar). *DO NOT USE THESE TOOLS*.
+
+
 In the top level CMake File:
 
 ~~~ cmake
 find_ups_product( hdf5 v01_00_00 )
-cet_find_library( hdf5 NAMES hdf5_debug PATHS ${HDF5_SEARCH_PATH}/lib NO_DEFAULT_PATH  )
-cet_find_library( hdf5_cpp NAMES hdf5_cpp_debug PATHS ${HDF5_SEARCH_PATH}/lib NO_DEFAULT_PATH  )
-cet_find_library( hdf5_hl NAMES hdf5_hl_debug PATHS ${HDF5_SEARCH_PATH}/lib NO_DEFAULT_PATH  )
-cet_find_library( hdf5_tools NAMES hdf5_tools_debug PATHS ${HDF5_SEARCH_PATH}/lib NO_DEFAULT_PATH  )
-set(HDF5_LIBRARIES ${hdf5} ${hdf5_cpp} ${hdf5_hl} ${hdf5_tools} )
 ~~~
 
-Now, in the linker list for a given target:
+And in the `ups/product_deps` file:
+
+~~~ txt
+# under product version
+hdf5             v01_00_00
+#under dep table
+qualifier uboonecode    hdf5      boost     gcc  notes
+e10:debug e10:debug e10:debug e10:debug -nq-
+e10:opt   e10:opt   e10:opt   e10:opt   -nq-
+e10:prof  e10:prof  e10:prof  e10:prof  -nq-
+~~~
+
+Now, in the CMake File for a given target:
 
 ~~~ cmake
+include_directories( $ENV{HDF5_INC} )
 cet_build_plugin( my_plugin module
-  ${HDF5_LIBRARIES}
+  ${hdf5_cpp}
 )
 ~~~
 
-This can be implemented in the CETBuildTools interface. However, no documenation exists and thus I'm not going to bother wasting time trying to hack Cet tools.
+
+>
