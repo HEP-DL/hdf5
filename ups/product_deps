@@ -33,8 +33,8 @@ flcdir  product_dir     fcl
 
 product          version
 zlib  		v01_02_11
-gcc		v4_9_3a
-cetbuildtools   v5_06_01       -       only_for_build
+gcc		v6_3_0
+cetbuildtools   v5_09_01       -       only_for_build
 end_product_list
 
 # We now define allowed qualifiers and the corresponding qualifiers for the depdencies.
