@@ -975,3 +975,4 @@ if (HDF5_EXPORTED_TARGETS)
       INCLUDES DESTINATION include
   )
 endif ()
+install_headers()
