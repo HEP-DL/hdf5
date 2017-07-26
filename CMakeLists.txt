@@ -53,11 +53,11 @@ set(HDF5_INC
 FORCE PARENT_SCOPE)
 add_subdirectory(hdf5)
 # Hack to get this to work with mrb correctly.
-cet_add_to_library_list( hdf5 )
-cet_add_to_library_list( hdf5_cpp )
-cet_add_to_library_list( hdf5_hl )
-cet_add_to_library_list( hdf5_tools )
-include_directories( ${HDF5_INC})
+cet_add_to_library_list( hdf5_${BTYPE_UC} )
+cet_add_to_library_list( hdf5_cpp_${BTYPE_UC} )
+cet_add_to_library_list( hdf5_hl_${BTYPE_UC} )
+cet_add_to_library_list( hdf5_tools_${BTYPE_UC} )
+include_directories( ${HDF5_INC} )
 
 # tests
 add_subdirectory(test)
